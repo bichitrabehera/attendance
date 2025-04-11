@@ -1,20 +1,19 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";  // Import Link to navigate
-import './index.css'
 
-function Login() {
+function Signup() {
   const [email, setEmail] = useState("");
+  const [usn, setUSN] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle login logic
   };
 
   return (
     <div id="main" className="bg-white p-10 min-h-screen flex justify-center items-center">
       <div className="bg-white p-8 rounded-lg border-1 border-black w-full max-w-md text-sm">
-        <h1 className="text-2xl text-center font-bold text-gray-800 mb-6">Login</h1>
+        <h1 className="text-2xl text-center font-bold text-gray-800 mb-6">Sign Up</h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-6">
             <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">Email</label>
@@ -24,6 +23,18 @@ function Login() {
               placeholder="Enter your email"
               className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:outline-none"
               onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="mb-6">
+            <label htmlFor="usn" className="block text-gray-700 font-semibold mb-2">USN</label>
+            <input
+              type="text"
+              id="usn"
+              placeholder="Enter your USN"
+              className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:outline-none"
+              onChange={(e) => setUSN(e.target.value)}
               required
             />
           </div>
@@ -44,15 +55,15 @@ function Login() {
             type="submit"
             className="w-full p-3 bg-black text-white font-semibold rounded-md hover:bg-blue-800 transition duration-200 focus:outline-none focus:ring-2 focus:ring-amber-500"
           >
-            Login
+            Sign Up
           </button>
         </form>
 
         <div className="mt-4 text-center">
           <p className="text-xs text-gray-600">
-            Don't have an account?{" "}
-            <Link to="/signup" className="text-blue-700 hover:underline">
-              Sign up
+            Already have an account?{" "}
+            <Link to="/login" className="text-blue-700 hover:underline">
+              Log in
             </Link>
           </p>
         </div>
@@ -61,4 +72,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Signup;

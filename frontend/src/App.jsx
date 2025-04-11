@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import Login from "./Login";
-import Signup from "./Signup";
+import './index.css'
+import Signup from './components/Signup.jsx'
+import Login from './components/Login.jsx'
 
 function App() {
   return (
