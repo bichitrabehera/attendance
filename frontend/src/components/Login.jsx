@@ -1,13 +1,23 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";  // Import Link to navigate
+import axios from "axios"; // Import axios for making HTTP requests
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Handle login logic
+    try {
+      const res = await axios.post("http://localhost:1516/api/auth/login", {
+        email,
+        password,
+      });
+      console.log("Logged in user:", res.data);
+      // Handle successful login (e.g., redirect to dashboard)
+    } catch (error) {
+      console.error("Login failed:", error.response?.data || error.message);
+    }
   };
 
   return (
